@@ -1,0 +1,18 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: paymentServer
+eureka:
+  instance:
+    instance-id: paymentServerA
+    prefer-ip-address: true
+  client:
+    ## 注册到注册中心
+    register-with-eureka: true
+    ## 获取注册表
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaA:8001/eureka/,http://eurekaB:8002/eureka/
+
