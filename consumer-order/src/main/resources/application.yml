@@ -1,0 +1,28 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: orderConsumer
+eureka:
+  instance:
+    instance-id: ${spring.application.name}
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eurekaA:8001/eureka/
+feign:
+  httpclient:
+    connection-timeout: 3000
+  compression:
+    ## 开启请求和响应压缩
+    request:
+      enabled: true
+      ## 压缩的数据类型
+      mime-types: text/html,application/json
+      ## 压缩数据的下限
+      min-request-size: 2048
+    response:
+      enabled: true
+

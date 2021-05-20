@@ -1,0 +1,14 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: paymentServer
+eureka:
+  instance:
+    instance-id: paymentServerB
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaA:8001/eureka/
