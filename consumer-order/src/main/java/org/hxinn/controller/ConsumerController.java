@@ -4,9 +4,7 @@ import org.hxinn.entity.BaseResult;
 import org.hxinn.entity.Payment;
 import org.hxinn.server.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -32,5 +30,16 @@ public class ConsumerController {
     public BaseResult<Payment> getPaymentById(Long id){
 //       return restTemplate.getForObject(PAYMENT_SERVER + "payment/log/"+id, BaseResult.class);
         return paymentService.getPaymentById(id);
+    }
+
+
+    @GetMapping("payment/ok/{id}")
+    public BaseResult<String> paymentSuccess(@PathVariable Integer id){
+        return paymentService.paymentSuccess(id);
+    }
+
+    @GetMapping("payment/time-out/{id}")
+    BaseResult<String> paymentTimeOut(@PathVariable Integer id){
+        return paymentService.paymentTimeOut(id);
     }
 }

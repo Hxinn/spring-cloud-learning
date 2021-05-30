@@ -12,9 +12,12 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://eurekaA:8001/eureka/
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 10000
 feign:
   httpclient:
-    connection-timeout: 3000
+    connection-timeout: 10000
   compression:
     ## 开启请求和响应压缩
     request:

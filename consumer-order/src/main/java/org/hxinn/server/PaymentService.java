@@ -14,4 +14,10 @@ public interface PaymentService {
 
     @GetMapping("payment/log/{id}")
     BaseResult<Payment> getPaymentById(@PathVariable Long id);
+
+    @GetMapping("payment/ok/{id}")
+    BaseResult<String> paymentSuccess(@PathVariable Integer id);
+
+    @GetMapping("payment/time-out/{id}")
+    BaseResult<String> paymentTimeOut(@PathVariable Integer id);
 }

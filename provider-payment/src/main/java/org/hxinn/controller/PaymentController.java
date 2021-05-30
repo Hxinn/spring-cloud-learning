@@ -5,10 +5,7 @@ import org.hxinn.entity.Payment;
 import org.hxinn.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("payment")
@@ -30,4 +27,19 @@ public class PaymentController {
         Payment payment = paymentService.getPaymentById(id);
         return new BaseResult<>(1,"success:"+port, payment);
     }
+
+    @GetMapping("ok/{id}")
+    public BaseResult<String> paymentSuccess(@PathVariable Integer id){
+        String msg = paymentService.paymentInfoOK(id);
+        return new BaseResult<>(1,"success"+port,msg);
+    }
+
+    @GetMapping("time-out/{id}")
+    public BaseResult<String> paymentTimeOut(@PathVariable Integer id){
+        String msg = paymentService.paymentInfoTimeOut(id);
+        return new BaseResult<>(1,"success"+port,msg);
+    }
+
+
+
 }
