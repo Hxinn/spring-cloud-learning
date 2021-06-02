@@ -16,6 +16,8 @@ ribbon:
   ConnectTimeout: 10000
   ReadTimeout: 10000
 feign:
+  hystrix:
+    enabled: true
   httpclient:
     connection-timeout: 10000
   compression:
@@ -29,3 +31,7 @@ feign:
     response:
       enabled: true
 
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    org.hxinn.server.PaymentService: debug

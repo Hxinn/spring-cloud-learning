@@ -6,7 +6,7 @@ import org.hxinn.entity.Payment;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("PAYMENTSERVER")
+@FeignClient(name = "PAYMENTSERVER",fallback = PaymentServiceFallBackHandler.class)
 public interface PaymentService {
 
     @PostMapping("payment/create")

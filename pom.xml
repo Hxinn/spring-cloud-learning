@@ -24,6 +24,7 @@
         <module>provider-payment-2</module>
         <module>api-commons</module>
         <module>consumer-order</module>
+        <module>cloud-gateway</module>
     </modules>
 
 

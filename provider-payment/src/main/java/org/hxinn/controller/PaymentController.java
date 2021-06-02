@@ -41,5 +41,12 @@ public class PaymentController {
     }
 
 
+    @GetMapping("circuit/{id}")
+    public BaseResult<String> paymentCircuit(@PathVariable Integer id){
+        String msg = paymentService.paymentCircuitBreaker(id);
+        return new BaseResult<>(1,"success"+port,msg);
+    }
+
+
 
 }
