@@ -25,6 +25,8 @@
         <module>api-commons</module>
         <module>consumer-order</module>
         <module>cloud-gateway</module>
+        <module>cloud-config</module>
+        <module>cloud-config-client</module>
     </modules>
 
 

@@ -1,0 +1,25 @@
+server:
+  port: 3344
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Hxinn/config-rope.git
+          search-paths: config-rope
+          username: hxinn
+          password: xiao445623551
+      label: master
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaA:8001/eureka/
