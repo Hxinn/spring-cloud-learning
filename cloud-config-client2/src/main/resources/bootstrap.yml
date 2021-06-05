@@ -1,5 +1,5 @@
 server:
-  port: 3355
+  port: 3366
 spring:
   application:
     name: config-client
@@ -16,7 +16,7 @@ spring:
     password: admin
 eureka:
   instance:
-    instance-id: configClinetA
+    instance-id: configClinetB
     prefer-ip-address: true
   client:
     service-url:
