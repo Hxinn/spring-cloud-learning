@@ -20,4 +20,7 @@ public interface PaymentService {
 
     @GetMapping("payment/time-out/{id}")
     BaseResult<String> paymentTimeOut(@PathVariable Integer id);
+
+    @GetMapping("payment/trace")
+    BaseResult<String> zipkinTrace();
 }

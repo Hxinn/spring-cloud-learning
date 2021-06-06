@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: paymentServer
+  zipkin:
+    base-url: http://192.168.95.128:9411
+  sleuth:
+    sampler:
+      # 消息采集量 0 - 1 1表示全部采集
+      probability: 1
 eureka:
   instance:
     instance-id: paymentServerA

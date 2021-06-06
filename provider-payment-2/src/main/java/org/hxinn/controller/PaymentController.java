@@ -5,10 +5,7 @@ import org.hxinn.entity.Payment;
 import org.hxinn.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("payment")
@@ -29,5 +26,10 @@ public class PaymentController {
     public BaseResult<Payment> getPaymentById(@PathVariable Long id){
         Payment payment = paymentService.getPaymentById(id);
         return new BaseResult<>(1,"success:"+port, payment);
+    }
+
+    @GetMapping("trace")
+    public BaseResult<String> zipkinTrace(){
+        return new BaseResult<>(1,"zipkinTrace span is payment");
     }
 }

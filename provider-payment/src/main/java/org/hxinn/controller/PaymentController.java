@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.DocFlavor;
+
 @RestController
 @RequestMapping("payment")
 public class PaymentController {
@@ -40,11 +42,15 @@ public class PaymentController {
         return new BaseResult<>(1,"success"+port,msg);
     }
 
-
     @GetMapping("circuit/{id}")
     public BaseResult<String> paymentCircuit(@PathVariable Integer id){
         String msg = paymentService.paymentCircuitBreaker(id);
         return new BaseResult<>(1,"success"+port,msg);
+    }
+
+    @GetMapping("trace")
+    public BaseResult<String> zipkinTrace(){
+        return new BaseResult<>(1,"zipkinTrace span is payment");
     }
 
 

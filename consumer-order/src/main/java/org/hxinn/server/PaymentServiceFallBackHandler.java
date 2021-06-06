@@ -26,4 +26,9 @@ public class PaymentServiceFallBackHandler implements PaymentService{
     public BaseResult<String> paymentTimeOut(Integer id) {
         return new BaseResult<>(100,"payment timeout please try a later (ToT)/~~~");
     }
+
+    @Override
+    public BaseResult<String> zipkinTrace() {
+        return new BaseResult<>(100,"zipkinTrace fail please try a later (ToT)/~~~");
+    }
 }

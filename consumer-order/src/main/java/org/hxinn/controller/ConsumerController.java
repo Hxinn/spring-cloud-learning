@@ -42,4 +42,9 @@ public class ConsumerController {
     BaseResult<String> paymentTimeOut(@PathVariable Integer id){
         return paymentService.paymentTimeOut(id);
     }
+
+    @GetMapping("payment/trace")
+    BaseResult<String> zipkinTrace(){
+        return paymentService.zipkinTrace();
+    }
 }

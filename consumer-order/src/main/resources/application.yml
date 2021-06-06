@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: orderConsumer
+  zipkin:
+    base-url: http://192.168.95.128:9411
+  sleuth:
+    sampler:
+      probability: 1
 eureka:
   instance:
     instance-id: ${spring.application.name}
